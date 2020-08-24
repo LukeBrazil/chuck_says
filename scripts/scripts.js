@@ -1,34 +1,61 @@
-const chuckSays = document.querySelector('#chuckSays')
-const myButton = document.getElementById('button');
-const submitButton = document.getElementById('submitForm');
+'use strict';
 
-function getJokes() {
-    return fetch('https://api.chucknorris.io/jokes/random')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            return data;
-        })
+const chuckSays = document.getElementById("chuckSays");
+const refreshQuote = document.getElementById("refreshQuote");
+const submitFormButton = document.getElementById("submitForm");
+const defaultCategory = "dev"
+
+// function getQuote(category) {}
+const getQuote = (category) => {
+    const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
+
+    get(url).then(function (fetchResponse) {
+        chuckSays.innerHTML = fetchResponse.value;
+    });
 }
 
-// (function() {
-//     getJokes().then(function(response) {
+refreshQuote.addEventListener('click', function (e) {
+    e.preventDefault();
+    getQuote(defaultCategory);
+});
+
+submitFormButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const userInput = document.getElementById("categoryInput");
+    const category = userInput.value;
+    getQuote(category);
+});
+
+(function () {
+    getQuote(defaultCategory)
+})();
+
+// const chuckSays = document.querySelector('#chuckSays')
+// const myButton = document.getElementById('button');
+// const submitButton = document.getElementById('submitForm');
+
+// const getQuote = (category) => {
+//     const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
+//     get(url).then(function(response) {
 //         chuckSays.innerHTML = response.value;
 //     })
-// }) ();
-
-myButton.addEventListener('click', function() {
-    getJokes().then(function(response) {
-        chuckSays.innerHTML = response.value;
-    })
-})
+// }
 
 
-submitButton.addEventListener('submit', function() {
-    event.preventDefault();
-    
-})
+// myButton.addEventListener('click', function() {
+//     get(url).then(function(response) {
+//         chuckSays.innerHTML = response.value;
+//     })
+// })
+
+
+// submitButton.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const userInput = document.getElementById('categoryInput');
+//     const category = userInput.value;
+//     getQuote(category);
+
+// })
 
 // 'use-stirct'
 
@@ -54,3 +81,19 @@ submitButton.addEventListener('submit', function() {
 //         chuckSays.innerHTML = response.value;
 //     })
 // }) ()
+
+// (function() {
+//     getJokes().then(function(response) {
+//         chuckSays.innerHTML = response.value;
+//     })
+// }) ();
+
+// function get() {
+//     return fetch('https://api.chucknorris.io/jokes/random')
+//         .then(function(response) {
+//             return response.json();
+//         })
+//         .then(function(data) {
+//             return data;
+//         })
+// }
