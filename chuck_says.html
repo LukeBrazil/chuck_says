@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuck Says</title>
+    <title>Chuck Says - 2020</title>
 </head>
 <body>
-    <h1>Chuck Says:</h1>
-    <p id="chuckSays">Dummy text</p>
-    <button id='button' class="refreshQuote">Make Chuck say things</button>
-    <form action="">
-        <label>Choose a Category
-        <input type="text" value ='' id="categoryInput" name='categoryInput' required placeholder="Category Name">
+    <p id="chuckSays">Chucks says...</p>
+    <button type="button" id="refreshQuote">Refresh Quote</button>
+    <form id='getChuckQuotes'>
+        <label>
+            Choose a Category
+            <select id="categoryInput" name="categoryInput"></select>
         </label>
-        <button type='submit' id="submitForm">Get Some Other Quote</button>
+        <button type="submit" id="submitForm">Get a Quote</button>
     </form>
-    <script src="scripts/get.js"></script>
-    <script src="scripts/scripts.js"></script>
 </body>
+<script src="js/get.js"></script>
+<script src="js/scripts.js"></script>
 </html>
