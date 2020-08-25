@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chuck Says - 2020</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-    <p id="chuckSays">Chucks says...</p>
-    <button type="button" id="refreshQuote">Refresh Quote</button>
-    <form id='getChuckQuotes'>
-        <label>
-            Choose a Category
-            <select id="categoryInput" name="categoryInput"></select>
-        </label>
-        <button type="submit" id="submitForm">Get a Quote</button>
-    </form>
-</body>
+    <div class="wrapper">
+        <div class="image-wrapper">
+            <img src="images/chuck.jpeg" alt="">
+        </div>
+        <button type="button" id="refreshQuote">Refresh Quote</button>
+        <form id='getChuckQuotes'>
+            <label>
+                Choose a Category
+                <select id="categoryInput" name="categoryInput"></select>
+            </label>
+            <button type="submit" id="submitForm">Get a Quote</button>
+        </form>
+    </div>
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <span id='closeModal' class='modal-close'><i class="fab fa-xbox"></i></span>
+            <p id="chuckSays">Chucks says...</p>
+        </div>
+    </div>
 <script src="js/get.js"></script>
 <script src="js/scripts.js"></script>
+</body>
+
 </html>
