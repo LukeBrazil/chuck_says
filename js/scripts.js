@@ -10,7 +10,7 @@ let category = "explicit"
 const getQuote = () => {
     const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
 
-    get(url).then(function (fetchResponse) {
+    getWithAwait(url).then(function (fetchResponse) {
         chuckSays.innerHTML = fetchResponse.value;
         modalOverlay.classList.toggle('open');
         
@@ -21,7 +21,7 @@ const getCategories = () => {
     const url = `https://api.chucknorris.io/jokes/categories`;
     const dropdownMenu = document.getElementById("categoryInput");
 
-    get(url).then(function (categoryArray) {
+    getWithAwait(url).then(function (categoryArray) {
         categoryArray
             .filter((category) => category !== "")
             .map(function (category) {
